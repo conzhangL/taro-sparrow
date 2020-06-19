@@ -1,37 +1,37 @@
-import Taro, { Component } from "@tarojs/taro";
-import { View, Text } from "@tarojs/components";
-import "./index.less";
-
+import Taro, { Component } from '@tarojs/taro'
+import { View, Text } from '@tarojs/components'
 import { connect } from "@tarojs/redux";
+import './index.scss'
 
-class Index extends Component {
-  componentWillMount() {}
+ class Index extends Component {
 
-  componentDidMount() {
+  componentWillMount () { }
+
+  componentDidMount () {
     const { dispatch } = this.props;
     dispatch({
       type: "user/getUser",
       payload: {},
     });
-  }
+   }
 
-  componentWillUnmount() {}
+  componentWillUnmount () { }
 
-  componentDidShow() {}
+  componentDidShow () { }
 
-  componentDidHide() {}
+  componentDidHide () { }
 
   config = {
-    navigationBarTitleText: "首页",
-  };
+    navigationBarTitleText: '首页'
+  }
 
-  render() {
+  render () {
     const { userInfo } = this.props;
     return (
-      <View className="index">
-        <Text>Hello world! {userInfo.name}</Text>
+      <View className='index'>
+        <Text>Hello world!{userInfo.name}</Text>
       </View>
-    );
+    )
   }
 }
 
