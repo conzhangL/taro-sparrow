@@ -1,57 +1,19 @@
-# Ant Design Pro
+# taro-sparrow
 
-This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
+taro-sparrow 是基于 taro + dva 整合的基础框架
 
-## Environment Prepare
+## 技术栈
 
-Install `node_modules`:
+taro + dva +react + less
 
-```bash
-npm install
-```
+## git 分支说明：
 
-or
+base：框架整体结构，不涉及任何业务逻辑
 
-```bash
-yarn
-```
+master：项目的稳定版本
 
-## Provided Scripts
+feature：项目开发分支
 
-Ant Design Pro provides some useful script to help you quick start and build with web project, code style check and test.
+### License
 
-Scripts provided in `package.json`. It's safe to modify or add additional script:
-
-### Start project
-
-```bash
-npm start
-```
-
-### Build project
-
-```bash
-npm run build
-```
-
-### Check code style
-
-```bash
-npm run lint
-```
-
-You can also use script to auto fix some lint error:
-
-```bash
-npm run lint:fix
-```
-
-### Test code
-
-```bash
-npm test
-```
-
-## More
-
-You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
+MIT
