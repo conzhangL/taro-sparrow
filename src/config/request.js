@@ -66,7 +66,7 @@ export default {
     }).then(setCookie)
       .then(checkStatus)
       .then(res => {
-        return res;
+        return res.data;
       })
   },
 

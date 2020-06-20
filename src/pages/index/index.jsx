@@ -1,40 +1,66 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import Taro, { Component } from "@tarojs/taro";
+import { View, Text } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
-import './index.scss'
+import NavSwiper from "./NavSwiper/index";
+import GoodsList from "./GoodsList/index";
+import "./index.scss";
 
- class Index extends Component {
+class Index extends Component {
+  componentWillMount() {}
 
-  componentWillMount () { }
-
-  componentDidMount () {
+  componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
       type: "user/getUser",
       payload: {},
     });
-   }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  config = {
-    navigationBarTitleText: '首页'
+    dispatch({
+      type: "home/getBrands",
+      payload: {},
+    });
+    dispatch({
+      type: "home/getGoodsList",
+      payload: {},
+    });
+    dispatch({
+      type: "home/getNavImgList",
+      payload: {},
+    });
   }
 
-  render () {
-    const { userInfo } = this.props;
+  componentWillUnmount() {}
+
+  componentDidShow() {}
+
+  componentDidHide() {}
+
+  config = {
+    navigationBarTitleText: "首页",
+  };
+
+  
+
+  render() {
+    const { goodsList, brands,navImgList } = this.props;
     return (
-      <View className='index'>
-        <Text>Hello world!{userInfo.name}</Text>
+      <View className="home-page">
+        <NavSwiper home={true} imgList = {navImgList}/>
+        <View className="nav-list">
+          {brands.map((v) => (
+            <View className="nav-item" key={v.id}>
+              <Image mode="widthFix" className="item-img" src={v.image_src} />
+            </View>
+          ))}
+        </View>
+        <GoodsList goodsList={goodsList} />
       </View>
-    )
+    );
   }
 }
 
-export default connect(({ user }) => ({
+export default connect(({ user, home }) => ({
   userInfo: user.userInfo,
+  brands: home.brands,
+  goodsList: home.goodsList,
+  navImgList:home.navImgList
 }))(Index);

@@ -1,9 +1,9 @@
-import Taro, { Component } from '@tarojs/taro'
-import Index from './pages/index'
+import Taro, { Component } from "@tarojs/taro";
+import Index from "./pages/index";
 import dva from "@/utils/dva";
 import models from "@/models/indx";
 import { Provider } from "@tarojs/redux";
-import './app.scss'
+import "./app.scss";
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -16,36 +16,62 @@ const dvaApp = dva.createApp({
 });
 const store = dvaApp.getStore();
 class App extends Component {
+  componentDidMount() {}
 
-  componentDidMount () {}
+  componentDidShow() {}
 
-  componentDidShow () {}
+  componentDidHide() {}
 
-  componentDidHide () {}
-
-  componentDidCatchError () {}
+  componentDidCatchError() {}
 
   config = {
     pages: [
-      'pages/index/index'
+      "pages/index/index",
+      "pages/detail/index",
     ],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
-    }
-  }
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#fff",
+      navigationBarTitleText: "WeChat",
+      navigationBarTextStyle: "black",
+    },
+    tabBar: {
+      list: [
+        {
+          pagePath: "pages/index/index",
+          text: "首页",
+          iconPath: "./assets/images/tab/home.png",
+          selectedIconPath: "./assets/images/tab/home-active.png",
+        },
+        {
+          pagePath: "pages/index/index",
+          text: "衣袋",
+          iconPath: "./assets/images/tab/cart.png",
+          selectedIconPath: "./assets/images/tab/cart-active.png",
+        },
+        {
+          pagePath: "pages/index/index",
+          text: "我的",
+          iconPath: "./assets/images/tab/user.png",
+          selectedIconPath: "./assets/images/tab/user-active.png",
+        },
+      ],
+      color: "#333",
+      selectedColor: "#333",
+      backgroundColor: "#fff",
+      borderStyle: "black",
+    },
+  };
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
       <Provider store={store}>
         <Index />
       </Provider>
-    )
+    );
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById("app"));

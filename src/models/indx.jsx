@@ -1,2 +1,3 @@
 import user from "./user";
-export default [user];
+import home from './home'
+export default [user,home];

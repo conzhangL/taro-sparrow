@@ -15,7 +15,7 @@ export default {
       const { data } = yield call(getUser);
       yield put({
         type: "saveUserInfo",
-        payload: data.data,
+        payload: data,
       });
     },
   },
